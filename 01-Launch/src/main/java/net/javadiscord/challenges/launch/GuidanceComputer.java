@@ -9,7 +9,8 @@ import net.javadiscord.challenges.launch.model.Rocket;
 public interface GuidanceComputer {
 	/**
 	 * This method is called a few seconds prior to launch. Use it to get your
-	 * bearings and initialize any systems so that launch goes smoothly.
+	 * bearings and initialize any systems so that launch goes smoothly. This
+	 * will be called roughly 5 seconds prior to liftoff.
 	 * @param rocket The rocket that's launching.
 	 * @param t The time until the launch, in seconds.
 	 */
