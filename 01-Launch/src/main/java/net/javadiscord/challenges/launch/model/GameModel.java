@@ -64,6 +64,6 @@ public class GameModel {
 	public float getEffectiveAccelerationDueToGravity() {
 		var v = rocket.getVelocity().x;
 		if (v == 0.0f) return G;
-		return G * (1.0f - (Math.abs(v) / ORBITAL_SPEED));
+		return Math.max(0, G * (1.0f - (Math.abs(v) / ORBITAL_SPEED)));
 	}
 }

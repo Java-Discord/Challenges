@@ -10,5 +10,7 @@ There are some primitive user controls that allow you to interact with the simul
 - `ESC` - Abort the launch.
 - `A` - Activate right-side RCS thruster to rotate left.
 - `D` - Activate left-side RCS thruster to rotate right.
+- `W` - Activate backward facing thrusters to go forwards.
+- `S` - Activate forward facing thrusters to go backwards.
 
 You are free to change/add/remove keybindings as necessary, but the guidance computer should be able to take the rocket from the ground to orbit without any human input.

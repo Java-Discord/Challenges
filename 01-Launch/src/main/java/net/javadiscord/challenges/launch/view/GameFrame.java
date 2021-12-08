@@ -39,8 +39,14 @@ public class GameFrame extends JFrame {
 					model.abortLaunch();
 				} else if (e.getKeyCode() == KeyEvent.VK_A) {
 					model.getRocket().getThrusterByName("RCS Top Right").setActive(true);
+					model.getRocket().getThrusterByName("RCS Bottom Left").setActive(true);
 				} else if (e.getKeyCode() == KeyEvent.VK_D) {
 					model.getRocket().getThrusterByName("RCS Top Left").setActive(true);
+					model.getRocket().getThrusterByName("RCS Bottom Right").setActive(true);
+				} else if (e.getKeyCode() == KeyEvent.VK_W) {
+					model.getRocket().doForAllThrusters("RCS Backward", t -> t.setActive(true));
+				} else if (e.getKeyCode() == KeyEvent.VK_S) {
+					model.getRocket().doForAllThrusters("RCS Forward", t -> t.setActive(true));
 				}
 			}
 
@@ -48,8 +54,14 @@ public class GameFrame extends JFrame {
 			public void keyReleased(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_A) {
 					model.getRocket().getThrusterByName("RCS Top Right").setActive(false);
+					model.getRocket().getThrusterByName("RCS Bottom Left").setActive(false);
 				} else if (e.getKeyCode() == KeyEvent.VK_D) {
 					model.getRocket().getThrusterByName("RCS Top Left").setActive(false);
+					model.getRocket().getThrusterByName("RCS Bottom Right").setActive(false);
+				} else if (e.getKeyCode() == KeyEvent.VK_W) {
+					model.getRocket().doForAllThrusters("RCS Backward", t -> t.setActive(false));
+				} else if (e.getKeyCode() == KeyEvent.VK_S) {
+					model.getRocket().doForAllThrusters("RCS Forward", t -> t.setActive(false));
 				}
 			}
 		});

@@ -71,11 +71,21 @@ public class Rocket {
 		var rcsFactory = new ThrusterFactory()
 				.maxThrust(100_000).minThrottle(0.05f).maxThrottle(1.0f).fuelBurnRate(5.0f).fuelType(monopropellant).gimbalRange(0).size(0.75f);
 		var rcsTopLeft = rcsFactory.build("RCS Top Left", new Vec2(-width / 2, height / 2), (float) -Math.PI);
-		rcsTopLeft.setThrottle(1);
 		var rcsTopRight = rcsFactory.build("RCS Top Right", new Vec2(width / 2, height / 2), 0);
-		rcsTopRight.setThrottle(1);
+		var rcsBottomLeft = rcsFactory.build("RCS Bottom Left", new Vec2(-width / 2, -height / 2 + 2), (float) -Math.PI);
+		var rcsBottomRight = rcsFactory.build("RCS Bottom Right", new Vec2(width / 2, -height / 2 + 2), 0);
+		var rcsForwardLeft = rcsFactory.build("RCS Forward Left", new Vec2(-width / 2 + 1, height / 2), (float) Math.PI / 2);
+		var rcsForwardRight = rcsFactory.build("RCS Forward Right", new Vec2(width / 2 - 1, height / 2), (float) Math.PI / 2);
+		var rcsBackwardRight = rcsFactory.build("RCS Backward Right", new Vec2(width / 2 - 1, -height / 2 + 2), (float) -Math.PI / 2);
+		var rcsBackwardLeft = rcsFactory.build("RCS Backward Left", new Vec2(-width / 2 + 1, -height / 2 + 2), (float) -Math.PI / 2);
 
-		thrusters.addAll(Set.of(me1, me2, me3, rcsTopLeft, rcsTopRight));
+		thrusters.addAll(Set.of(
+				me1, me2, me3,
+				rcsTopLeft, rcsTopRight,
+				rcsBottomLeft, rcsBottomRight,
+				rcsForwardLeft, rcsForwardRight,
+				rcsBackwardLeft, rcsBackwardRight
+		));
 	}
 
 	public float getFuelRemaining(FuelType type) {
